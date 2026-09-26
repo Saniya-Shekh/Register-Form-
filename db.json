@@ -49,6 +49,16 @@
       "confirmPassword": "",
       "gender": "Female",
       "id": "COD4RqCldC8"
+    },
+    {
+      "fullName": "bynykodojy",
+      "userName": "cakiqup",
+      "email": "ramyweky",
+      "phoneNumber": "kykywoxy",
+      "password": "zytoris",
+      "confirmPassword": "gefivybon",
+      "gender": "Female",
+      "id": "3R8LmiYlNSQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

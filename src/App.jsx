@@ -11,6 +11,7 @@ const App = () => {
   let[loading,setLoading] = useState(false)
 
   let [user,setUser] = useState([]);
+  let[error,setError] = useState({})
 
   let getData = async() => {
     setLoading(true)
@@ -35,6 +36,43 @@ const App = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let newError = {};
+
+    if(fullName.trim() === ""){
+      newError.fullName = "FullName Required"
+    }
+
+    if(userName.trim() === "") {
+      newError.userName = "UserName Required"
+    }
+
+    if(password.trim() === "") {
+      newError.password = "Password Required"
+    }
+
+    if(email.trim() === "") {
+      newError.email = "Email Required"
+    }
+
+    if(confirmPassword.trim() ==="") {
+      newError.confirmPassword = "ConfirmPassword Required"
+    }
+
+    if(phoneNumber.trim() === "") {
+      newError.phoneNumber = "PhoneNumber Required"
+    }
+
+    if(gender.trim() === "") {
+      newError.gender = "Gender Required"
+    }
+
+    setError(newError)
+
+    if(Object.keys(newError).length > 0) {
+      return;
+    }
+
 
     console.log({fullName,userName,email,phoneNumber, password, confirmPassword, gender});
 
@@ -76,6 +114,9 @@ const App = () => {
                     className="border h-8 rounded-md pl-3"
                     onChange={(e) => setFullName(e.target.value)}
                   />
+                  {
+                    error && <small>{error.fullName}</small>
+                  }
                 </div>
 
                 <div className="flex flex-col">
@@ -87,6 +128,9 @@ const App = () => {
                     className="border h-8 rounded-md pl-3"
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                   {
+                    error && <small>{error.email}</small>
+                  }
                 </div>
 
                 <div className="flex flex-col">
@@ -98,6 +142,9 @@ const App = () => {
                     className="border h-8 rounded-md pl-3"
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                   {
+                    error && <small>{error.password}</small>
+                  }
                 </div>
               </div>
               <div className="flex flex-col gap-3">
@@ -110,6 +157,9 @@ const App = () => {
                     className="border h-8 rounded-md pl-3"
                     onChange={(e) => setUserName(e.target.value)}
                   />
+                  {
+                    error && <small>{error.userName}</small>
+                  }
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="">Phone Number </label>
@@ -120,6 +170,9 @@ const App = () => {
                     className="border h-8 rounded-md pl-3"
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
+                  {
+                    error && <small>{error.phoneNumber}</small>
+                  }
                 </div>
 
                 <div className="flex flex-col">
@@ -131,6 +184,9 @@ const App = () => {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
+                  {
+                    error && <small>{error.confirmPassword}</small>
+                  }
                 </div>
               </div>
             </div>
@@ -166,6 +222,9 @@ const App = () => {
                   Prefer not to say
                 </label>
               </div>
+              {
+                error && <small>{error.gender}</small>
+              }
             </div>
 
             <div className="mt-3">
