@@ -8,10 +8,12 @@ const App = () => {
   let [password, setPassword] = useState("");
   let [confirmPassword, setConfirmPassword] = useState("");
   let [gender, setGender] = useState("");
+  let[loading,setLoading] = useState(false)
 
   let [user,setUser] = useState([]);
 
   let getData = async() => {
+    setLoading(true)
     let res = await fetch("http://localhost:5000/users")
 
     let data = await res.json()
@@ -20,7 +22,12 @@ const App = () => {
 
     setUser(data)
 
+   setTimeout(()=>{
+    setLoading(false)
+   },1000)
+
   } 
+
 
   useEffect(()=>{
     getData()
@@ -174,7 +181,7 @@ const App = () => {
       </div>
 
       <div className="border-2 h-[60vh] w-90 overflow-auto">
-        {user.map((data)=>{
+        {loading? (<h1 className="p-3 font-bold text-xl">Loading</h1>):(user.map((data)=>{ 
           return (
             <div className="border-2 m-3 p-4">
               <ul>
@@ -188,7 +195,7 @@ const App = () => {
               </ul>
             </div>
           )
-        })}
+        }))}
       </div>
     </div>
 

@@ -29,6 +29,26 @@
       "confirmPassword": "zefoxevopa",
       "gender": "Female",
       "id": "8VTX2MKJ90A"
+    },
+    {
+      "fullName": "Saniya Kasam Bagwan",
+      "userName": "saniyabagwan_03",
+      "email": "saniyabagwan121@gmail.com",
+      "phoneNumber": "8605142370",
+      "password": "saniya@2104",
+      "confirmPassword": "saniya@2104",
+      "gender": "Female",
+      "id": "lLLt2mFr3BI"
+    },
+    {
+      "fullName": "",
+      "userName": "",
+      "email": "saniya",
+      "phoneNumber": "",
+      "password": "",
+      "confirmPassword": "",
+      "gender": "Female",
+      "id": "COD4RqCldC8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
